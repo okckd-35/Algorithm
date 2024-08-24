@@ -1,5 +1,7 @@
 function solution(s) {
-    
-  return s.split("").sort().reverse().join("");
-
+    var answer = '';
+    s = s.split("");
+    s.sort().reverse();
+    answer = s.join("").toString();
+    return answer;
 }
