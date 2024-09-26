@@ -1,19 +1,21 @@
-function solution(arr) {
-    let answer = [];
-    let lux = Number.MAX_VALUE;
-    let luy = Number.MAX_VALUE;
-    let rdx = Number.MIN_VALUE;
-    let rdy = Number.MIN_VALUE;
-    for(let i = 0; i < arr.length; i++) {
-        for(let j = 0; j < arr[i].length; j++) {
-            if(arr[i][j] === '#') {
+function solution(wallpaper) {
+    let [lux, luy, rdx, rdy] = [50, 50, 0, 0];
+
+    
+    for (let i = 0; i < wallpaper.length; i++) {
+        let line = wallpaper[i];
+        for (let j = 0; j < line.length; j++) {
+            let file = line[j];
+
+           
+            if (file === '#') {
                 lux = Math.min(lux, i);
                 luy = Math.min(luy, j);
-                rdx = Math.max(rdx, i);
-                rdy = Math.max(rdy, j);
-             
+                rdx = Math.max(rdx, i + 1);
+                rdy = Math.max(rdy, j + 1);
             }
         }
     }
-    return answer = [lux,luy,rdx + 1,rdy + 1]
+
+    return [lux, luy, rdx, rdy];
 }
